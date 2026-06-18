@@ -1,0 +1,160 @@
+import type { Exercise, MuscleId } from "@/lib/types";
+
+// Seed exercise library. muscleWeights sum ~1.0 (primary heavier, secondary lighter).
+export const SEED_EXERCISES: Exercise[] = [
+  {
+    id: "pushups",
+    name: "Push-ups",
+    unit: "reps",
+    muscleWeights: { chest: 0.55, triceps: 0.25, shoulders: 0.2 },
+    statWeights: { STR: 1 },
+    expPerUnit: 2.2,
+  },
+  {
+    id: "pike-pushups",
+    name: "Pike Push-ups",
+    unit: "reps",
+    muscleWeights: { shoulders: 0.6, triceps: 0.4 },
+    statWeights: { STR: 1 },
+    expPerUnit: 2.8,
+  },
+  {
+    id: "shoulder-press",
+    name: "Shoulder Press",
+    unit: "reps",
+    muscleWeights: { shoulders: 0.65, triceps: 0.35 },
+    statWeights: { STR: 1 },
+    expPerUnit: 3.0,
+  },
+  {
+    id: "pullups",
+    name: "Pull-ups",
+    unit: "reps",
+    muscleWeights: { back: 0.6, biceps: 0.25, forearms: 0.15 },
+    statWeights: { STR: 1 },
+    expPerUnit: 5.0,
+  },
+  {
+    id: "rows",
+    name: "Bodyweight Rows",
+    unit: "reps",
+    muscleWeights: { back: 0.65, biceps: 0.35 },
+    statWeights: { STR: 1 },
+    expPerUnit: 3.0,
+  },
+  {
+    id: "squats",
+    name: "Squats",
+    unit: "reps",
+    muscleWeights: { quads: 0.6, glutes: 0.4 },
+    statWeights: { STR: 1 },
+    expPerUnit: 1.8,
+  },
+  {
+    id: "lunges",
+    name: "Lunges",
+    unit: "reps",
+    muscleWeights: { quads: 0.45, glutes: 0.35, hamstrings: 0.2 },
+    statWeights: { STR: 0.6, AGI: 0.4 },
+    expPerUnit: 2.2,
+  },
+  {
+    id: "glute-bridges",
+    name: "Glute Bridges",
+    unit: "reps",
+    muscleWeights: { glutes: 0.65, hamstrings: 0.35 },
+    statWeights: { STR: 1 },
+    expPerUnit: 1.8,
+  },
+  {
+    id: "calf-raises",
+    name: "Calf Raises",
+    unit: "reps",
+    muscleWeights: { calves: 1.0 },
+    statWeights: { STR: 1 },
+    expPerUnit: 1.0,
+  },
+  {
+    id: "situps",
+    name: "Sit-ups",
+    unit: "reps",
+    muscleWeights: { core: 1.0 },
+    statWeights: { STR: 0.6, VIT: 0.4 },
+    expPerUnit: 1.6,
+  },
+  {
+    id: "plank",
+    name: "Plank",
+    unit: "seconds",
+    muscleWeights: { core: 1.0 },
+    statWeights: { STR: 0.5, VIT: 0.5 },
+    expPerUnit: 0.6,
+  },
+  {
+    id: "running",
+    name: "Running",
+    unit: "km",
+    muscleWeights: { quads: 0.4, hamstrings: 0.3, calves: 0.3 },
+    statWeights: { VIT: 0.85, AGI: 0.15 },
+    expPerUnit: 90,
+  },
+  {
+    id: "burpees",
+    name: "Burpees",
+    unit: "reps",
+    muscleWeights: {
+      quads: 0.25,
+      glutes: 0.15,
+      hamstrings: 0.1,
+      chest: 0.2,
+      core: 0.2,
+      shoulders: 0.1,
+    },
+    statWeights: { AGI: 0.5, VIT: 0.5 },
+    expPerUnit: 4.0,
+  },
+  {
+    id: "jump-squats",
+    name: "Jump Squats",
+    unit: "reps",
+    muscleWeights: { quads: 0.45, glutes: 0.3, calves: 0.25 },
+    statWeights: { AGI: 0.6, VIT: 0.4 },
+    expPerUnit: 3.0,
+  },
+  {
+    id: "bicep-curls",
+    name: "Bicep Curls",
+    unit: "reps",
+    muscleWeights: { biceps: 0.8, forearms: 0.2 },
+    statWeights: { STR: 1 },
+    expPerUnit: 2.0,
+  },
+  {
+    id: "dips",
+    name: "Dips",
+    unit: "reps",
+    muscleWeights: { triceps: 0.6, chest: 0.25, shoulders: 0.15 },
+    statWeights: { STR: 1 },
+    expPerUnit: 3.2,
+  },
+];
+
+export function buildExerciseMap(exercises: Exercise[]): Record<string, Exercise> {
+  const map: Record<string, Exercise> = {};
+  for (const ex of exercises) map[ex.id] = ex;
+  return map;
+}
+
+export const MUSCLE_LABELS: Record<MuscleId, string> = {
+  shoulders: "Shoulders",
+  chest: "Chest",
+  biceps: "Biceps",
+  triceps: "Triceps",
+  forearms: "Forearms",
+  back: "Back",
+  core: "Core",
+  quads: "Quads",
+  hamstrings: "Hamstrings",
+  glutes: "Glutes",
+  calves: "Calves",
+};

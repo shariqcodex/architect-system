@@ -1,0 +1,34 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# desktop app build output (Electron / electron-builder — large binaries)
+/dist
+
+# misc
+.DS_Store
+*.pem
+
+# local editor / tooling config
+/.claude
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files (NEVER commit your Groq key)
+.env
+.env*.local
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
